@@ -1,0 +1,44 @@
+# depslib dependency file v1.0
+1490033119 source:c:\users\papa ousmane ndiaye\documents\formation dic\dic 1 informatique\programmation langage c\workspace langage c\projet_c\main.c
+	<stdio.h>
+	<stdlib.h>
+	<strings.h>
+
+1490782067 source:c:\users\papa ousmane ndiaye\documents\formation dic\dic 1 informatique\1er semestre\programmation langage c\workspace langage c\projet_c\main.c
+	<stdio.h>
+	<stdlib.h>
+	<strings.h>
+	<myconio.h>
+	<stdbool.h>
+	"membre/membre.h"
+	"authentification/login.h"
+	"affichageEcran/affichageEcran.h"
+
+1490782375 c:\users\papa ousmane ndiaye\documents\formation dic\dic 1 informatique\1er semestre\programmation langage c\workspace langage c\projet_c\membre\membre.h
+	"membre.c"
+
+1490783555 c:\users\papa ousmane ndiaye\documents\formation dic\dic 1 informatique\1er semestre\programmation langage c\workspace langage c\projet_c\membre\membre.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<myconio.h>
+
+1490228040 c:\users\papa ousmane ndiaye\documents\formation dic\dic 1 informatique\1er semestre\programmation langage c\workspace langage c\projet_c\authentification\login.h
+	"login.c"
+
+1490228011 c:\users\papa ousmane ndiaye\documents\formation dic\dic 1 informatique\1er semestre\programmation langage c\workspace langage c\projet_c\authentification\login.c
+	<stdbool.h>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+
+1490634229 c:\users\papa ousmane ndiaye\documents\formation dic\dic 1 informatique\1er semestre\programmation langage c\workspace langage c\projet_c\affichageecran\affichageecran.h
+	"affichageEcran.c"
+
+1490800660 c:\users\papa ousmane ndiaye\documents\formation dic\dic 1 informatique\1er semestre\programmation langage c\workspace langage c\projet_c\affichageecran\affichageecran.c
+	<stdio.h>
+	<stdlib.h>
+	<strings.h>
+	<stdbool.h>
+	<myconio.h>
+

@@ -98,7 +98,9 @@ membre insererMembreLC(membre l, membre m){
 
 //rechercher membre
 membre rechercherMembreLC(membre mb, char *numero){
-	struct membre *m = mb;
+	struct membre * m = mb;
+	struct formation * f = mb->classe;
+	m->classe = f;
 	if(m!=NULL)
 	{
 		while(m!=NULL)
@@ -107,6 +109,7 @@ membre rechercherMembreLC(membre mb, char *numero){
 				{
 					return m;
 				}
+
 			m=m->suiv;
 		}
 	}
@@ -115,7 +118,7 @@ membre rechercherMembreLC(membre mb, char *numero){
 
 //modifier membre
 membre modifierMembreLC(membre mb, char *numero){
-	membre m=mb;
+	struct membre *m = mb;
 	if(m!=NULL)
 	{
 		while(m!=NULL)
@@ -146,17 +149,17 @@ membre modifierMembreLC(membre mb, char *numero){
 					switch (nb) {
 						case 1: printf("\t\t\t\t\t\t Entrer le nouveau nom: ");
 								scanf("%s",m->nom);
-								return m;
+								return mb;
 								break;
 						case 2: printf("\t\t\t\t\t\t Entrer le nouveau prenom: ");
 								scanf("%s",m->prenom);
-								return m;
+								return mb;
 								break;
 						case 3: printf("\t\t\t\t\t\t Entrer le nouveau adresse: ");
 								scanf("%s",m->adresse);
-								return m;
+								return mb;
 								break;
-						case 4: return m;
+						case 4: return mb;
 								break;
 						default : printf("\t\t\t\t\t\t Pas de modification\n");
 						break;
@@ -172,7 +175,7 @@ membre modifierMembreLC(membre mb, char *numero){
 
 //supprimer membre
 membre supprimerMembreLC(membre mb, char *numero){
-	membre m=mb;
+	struct membre *m=mb;
 	if(m!=NULL)
 	{
 		if(strcmp(m->numero,numero)==0)
@@ -222,26 +225,29 @@ void afficherMembre(membre m){
 
 void afficherFormationbis(membre l){
     int i;
-    while(l->classe != NULL){
-        printf("\t\t\t\t\t\tCode: %s\n", l->classe->code);
-        printf("\t\t\t\t\t\tIntitule: %s\n", l->classe->intitule);
-        printf("\t\t\t\t\t\tAnnee: %s\n", l->classe->annee);
-        l->classe = l->classe->suiv;
+	struct formation * f = l->classe;
+    while(f != NULL){
+        printf("\t\t\t\t\t\tCode: %s\n", f->code);
+        printf("\t\t\t\t\t\tIntitule: %s\n", f->intitule);
+        printf("\t\t\t\t\t\tAnnee: %s\n", f->annee);
+        f = f->suiv;
     }
 }
 
 void afficherFormation(membre l){
     int i;
-    while(l->classe != NULL){
-        printf("\t\t\t\t\t\tCode: %s ", l->classe->code);
-        printf("\t\t\t\t\t\tIntitule: %s\n", l->classe->intitule);
-        printf("\t\t\t\t\t\tAnnee: %s\n", l->classe->annee);
-        l->classe = l->classe->suiv;
+	struct formation * f = l->classe;
+    while(f != NULL){
+        printf("\t\t\t\t\t\tCode: %s ", f->code);
+        printf("\t\t\t\t\t\tIntitule: %s\n", f->intitule);
+        printf("\t\t\t\t\t\tAnnee: %s\n", f->annee);
+		f = f->suiv;
     }
 }
 
-void afficherListe(membre l){
+void afficherListe(membre m){
     int i;
+	struct membre * l = m;
 	if(l != NULL){
         while(l != NULL){
             printf("\t\t\t\t\t\tNumero: %s\n", l->numero);

@@ -174,40 +174,31 @@ membre modifierMembreLC(membre mb, char *numero){
 }
 
 //supprimer membre
-membre supprimerMembreLC(membre mb, char *numero){
-	struct membre *m=mb;
-	if(m!=NULL)
-	{
-		if(strcmp(m->numero,numero)==0)
-		{
-			mb= m->suiv;
-			return mb;
-		}
-		while(m->suiv!=NULL)
-		{
-			if(m->suiv->suiv!=NULL)
-			{
-				if(strcmp(m->suiv->numero,numero)==0)
-					{
-						printf("1\n");
-						m->suiv= m->suiv->suiv;
-						return mb;
-					}
-			}
-			else
-			{
-				if(strcmp(m->suiv->numero,numero)==0)
-					{
-						printf("2\n");
-						m->suiv=NULL;
-						return mb;
-					}
-			}
-			m=m->suiv;
-		}
+membre supprimerMembreLC(membre liste, char *numero){
+	/* Liste vide, il n'y a plus rien à supprimer */
+	if(liste == NULL)
+		return NULL;
 
+	/* Si l'élément en cours de traitement doit être supprimé */
+	if(liste->numero == numero)
+	{
+		/* On le supprime en prenant soin de mémoriser
+        l'adresse de l'élément suivant */
+		struct membre * tmp = liste->suiv;
+		free(liste);
+		/* L'élément ayant été supprimé, la liste commencera à l'élément suivant
+        pointant sur une liste qui ne contient plus aucun élément ayant la valeur recherchée */
+		tmp = supprimerMembreLC(tmp, numero);
+		return tmp;
 	}
-	return mb;
+	else
+	{
+		/* Si l'élement en cours de traitement ne doit pas être supprimé,
+        alors la liste finale commencera par cet élément et suivra une liste ne contenant
+        plus d'élément ayant la valeur recherchée */
+		liste->suiv = supprimerMembreLC(liste->suiv, numero);
+		return liste;
+	}
 }
 
 void afficherMembre(membre m){
